@@ -1,4 +1,3 @@
-# import codes
 from db import db
 
 
