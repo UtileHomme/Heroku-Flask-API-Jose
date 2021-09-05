@@ -11,13 +11,10 @@ from security import authenticate, identity
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 
-uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
-# rest of connection code using the connection string `uri`
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL',
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URLA',
                                                        'postgres://mbbfjdfdhjafxe:33c11e1db66fde27b6e083127ca5613fc3f9d507cb4d325814348106e9f58a71@ec2-107-22-18-26.compute-1.amazonaws.com:5432/deqnaume1lid47')
 app.config['SQLALCHEMY_TRACK_NOTIFICATIONS'] = False
 app.secret_key = 'Jatin'
