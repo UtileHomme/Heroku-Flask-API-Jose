@@ -14,12 +14,6 @@ app.config['SQLALCHEMY_TRACK_NOTIFICATIONS'] = False
 app.secret_key = 'Jatin'
 api = Api(app)
 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 # changing the default token expiry time
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=30)
 
